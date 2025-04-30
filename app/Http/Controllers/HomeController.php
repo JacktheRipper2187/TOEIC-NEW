@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Peserta;
+use App\Models\Sertifikat;
+use App\Models\Jadwal;
 
 class HomeController extends Controller
 {
@@ -22,15 +25,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $users = User::count();
-
-        $widget = [
-            'users' => $users,
-            //...
-        ];
-
-        return view('home', compact('widget'));
+    
+    
+        public function index()
+        {
+            $peserta = Peserta::all();
+            $sertifikat = Sertifikat::count();
+            $jadwal = Jadwal::count();
+    
+            return view('home', compact('peserta', 'sertifikat', 'jadwal'));
+        }
     }
-}
+    

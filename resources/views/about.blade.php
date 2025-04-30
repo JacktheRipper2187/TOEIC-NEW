@@ -19,20 +19,10 @@
                     <div class="row">
                         <div class="col-lg-12 mb-1">
                             <div class="text-center">
-                                <h5 class="font-weight-bold">UPA POLINEMA</h5>
+                                <h5 class="font-weight-bold">UPA BAHASA 
+                                    <br>Politeknik Negeri Malang
+                                </h5>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 mb-1 text-center">
-                            <a href="https://facebook.com/aleckrh" target="_blank" class="btn btn-facebook btn-circle btn-lg"><i class="fab fa-facebook-f fa-fw"></i></a>
-                        </div>
-                        <div class="col-md-4 mb-1 text-center">
-                            <a href="https://github.com/aleckrh" target="_blank" class="btn btn-github btn-circle btn-lg"><i class="fab fa-github fa-fw"></i></a>
-                        </div>
-                        <div class="col-md-4 mb-1 text-center">
-                            <a href="https://twitter.com/aleckrh" target="_blank" class="btn btn-twitter btn-circle btn-lg"><i class="fab fa-twitter fa-fw"></i></a>
                         </div>
                     </div>
 
@@ -43,8 +33,8 @@
                             <h5 class="font-weight-bold">Upa Bahasa Politeknik Negeri Malang</h5>
                             <p>TOEIC</p>
                             <p>Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa, termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).</p>
-                            <a href="https://github.com/aleckrh/laravel-sb-admin-2" target="_blank" class="btn btn-github">
-                                <i class="fab fa-github fa-fw"></i> Go to Instagram
+                            <a href="https://www.instagram.com/upabahasa/" target="_blank" class="btn btn-github">
+                                <i class="fab fa-instagram fa-fw"></i> Go to Instagram
                             </a>
                         </div>
                     </div>
