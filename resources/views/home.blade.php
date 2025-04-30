@@ -123,7 +123,6 @@
         </div>
 
         <div id="data-informasi" style="display: none;">
-            <h2 class="h4 mb-3 text-gray-800">Data Informasi</h2>
             <table class="table table-bordered">
                 <thead>
                     <tr>
