@@ -129,7 +129,7 @@
                     UPA BAHASA POLINEMA
                 </div>
                 <div class="subtitle">
-                    Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa, 
+                    Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa,<br> 
                     termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).
                 </div>
 

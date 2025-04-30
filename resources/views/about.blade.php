@@ -30,8 +30,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h5 class="font-weight-bold">Upa Bahasa Politeknik Negeri Malang</h5>
-                            <p>TOEIC</p>
+                            <h5 class="font-weight-bold">TOEIC</h5>
                             <p>Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa, termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).</p>
                             <a href="https://www.instagram.com/upabahasa/" target="_blank" class="btn btn-github">
                                 <i class="fab fa-instagram fa-fw"></i> Go to Instagram
