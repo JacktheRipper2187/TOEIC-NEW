@@ -27,13 +27,15 @@ class HomeController extends Controller
      */
     
     
-        public function index()
-        {
-            $peserta = Peserta::all();
-            $sertifikat = Sertifikat::count();
-            $jadwal = Jadwal::count();
-    
-            return view('home', compact('peserta', 'sertifikat', 'jadwal'));
-        }
+     public function index()
+     {
+         // Ambil semua data dari masing-masing model
+         $peserta = Peserta::all();
+         $sertifikat = Sertifikat::all();
+         $jadwal = Jadwal::all();
+ 
+         // Kirim data ke view admin.dashboard
+         return view('home', compact('peserta', 'sertifikat', 'jadwal'));
+     }
     }
     
