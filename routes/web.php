@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SertifikatController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +37,14 @@ Route::get('/about', function () {
 Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index');
 Route::get('/jadwal', [PesertaController::class, 'index'])->name('jadwal.index');
 Route::get('/sertifikat', [PesertaController::class, 'index'])->name('sertifikat.index');
+Route::get('/pendaftaran', function () {
+    return view('pendaftaran');
+});
+
+Route::post('/pendaftaran', function (Request $request) {
+    // Simpan data pendaftaran (bisa ke DB atau tampilkan saja)
+    $nama = $request->input('nama');
+    $email = $request->input('email');
+
+    return "Pendaftaran Berhasil! Nama: $nama, Email: $email";
+})->name('pendaftaran.submit');

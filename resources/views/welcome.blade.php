@@ -188,47 +188,10 @@
             <h3 class="card-title fw-bold text-primary mb-3">Dashboard Pendaftaran</h3>
             <p>Pilih jenis pendaftaran:</p>
             <div class="d-flex gap-3 justify-content-center">
-                <button class="btn btn-lg btn-success">GRATIS</button>
-                <button class="btn btn-lg btn-warning">BERBAYAR</button>
-            </div>
-        </div>
-    </div>
+                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">GRATIS</a> 
+                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">BERBAYAR</button>
 
-    <div class="card shadow mb-4">
-        <div class="card-body p-4">
-            <h3 class="card-title fw-bold text-success mb-3">Pendaftaran Peserta</h3>
-            <form>
-                <div class="mb-3 row">
-                    <label for="nama" class="col-md-3 col-form-label">Nama Lengkap</label>
-                    <div class="col-md-9">
-                        <input type="text" id="nama" class="form-control" placeholder="Masukkan nama Anda">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="nim" class="col-md-3 col-form-label">NIM/NIK</label>
-                    <div class="col-md-9">
-                        <input type="text" id="nim" class="form-control" placeholder="Masukkan NIM/NIK Anda">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="programStudi" class="col-md-3 col-form-label">Program Studi</label>
-                    <div class="col-md-9">
-                        <select id="programStudi" class="form-select">
-                            <option selected>Pilih Program Studi</option>
-                            <option value="TI">Teknik Informatika</option>
-                            <option value="TE">Teknik Elektro</option>
-                            <option value="TM">Teknik Mesin</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="email" class="col-md-3 col-form-label">Email</label>
-                    <div class="col-md-9">
-                        <input type="email" id="email" class="form-control" placeholder="Masukkan email Anda">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-success">Daftar Sekarang</button>
-            </form>
+            </div>
         </div>
     </div>
 
