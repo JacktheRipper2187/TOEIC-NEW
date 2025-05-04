@@ -6,7 +6,11 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SertifikatController;
+<<<<<<< HEAD
 
+=======
+use Illuminate\Http\Request;
+>>>>>>> bfc23cc773f25c2e68ba04b76540922cbf03c362
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,5 +43,33 @@ Route::group(['prefix' => '{lang?}', 'where' => ['lang' => 'en|id']], function (
 // Route untuk autentikasi
 Auth::routes();
 
+<<<<<<< HEAD
 // Route tanpa parameter bahasa
 Route::get('/home', 'HomeController@index')->name('home');
+=======
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::put('/profile', 'ProfileController@update')->name('profile.update');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+
+
+Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index');
+Route::get('/jadwal', [PesertaController::class, 'index'])->name('jadwal.index');
+Route::get('/sertifikat', [PesertaController::class, 'index'])->name('sertifikat.index');
+Route::get('/pendaftaran', function () {
+    return view('pendaftaran');
+});
+
+Route::post('/pendaftaran', function (Request $request) {
+    // Simpan data pendaftaran (bisa ke DB atau tampilkan saja)
+    $nama = $request->input('nama');
+    $email = $request->input('email');
+
+    return "Pendaftaran Berhasil! Nama: $nama, Email: $email";
+})->name('pendaftaran.submit');
+>>>>>>> bfc23cc773f25c2e68ba04b76540922cbf03c362
