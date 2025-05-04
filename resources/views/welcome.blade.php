@@ -1,10 +1,11 @@
+{{-- filepath: c:\laragon\www\TOEIC-NEW\resources\views\welcome.blade.php --}}
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>UPA Bahasa Polinema</title>
+        <title>{{ __('welcome.title') }}</title>
         <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/style.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -67,6 +68,17 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+                
+            .subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #f8f9fa;
+            text-shadow: 1px 1px 3px #000;
+        }
         </style>
     </head>
 
@@ -76,7 +88,7 @@
             <nav class="navbar navbar-expand-lg navbar-light container-fluid py-3">
                 <a class="navbar-brand d-flex align-items-center" href="/">
                     <img src="{{ asset('img/Polinema-Logo.png') }}" alt="Logo Polinema" style="height: 50px;">
-                    <span class="ms-3 fw-bold text-primary fs-4">UPA Bahasa Polinema</span>
+                    <span class="ms-3 fw-bold text-primary fs-4">{{ __('welcome.header') }}</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -85,24 +97,24 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark px-3" href="/">Beranda</a>
+                            <a class="nav-link text-dark px-3" href="/">{{ __('welcome.home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark px-3" href="#">Syarat & Ketentuan</a>
+                            <a class="nav-link text-dark px-3" href="#">{{ __('welcome.terms') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark px-3" href="blog.html">Pendaftaran</a>
+                            <a class="nav-link text-dark px-3" href="blog.html">{{ __('welcome.registration') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark px-3" href="contact.html">Jadwal</a>
+                            <a class="nav-link text-dark px-3" href="contact.html">{{ __('welcome.schedule') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-dark px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Pilih Bahasa
+                                {{ __('welcome.language') }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="index.html">Indonesia</a></li>
-                                <li><a class="dropdown-item" href="index-fashion-2.html">English</a></li>
+                                <li><a class="dropdown-item" href="{{ route('welcome', ['lang' => 'id']) }}">Indonesia</a></li>
+                                <li><a class="dropdown-item" href="{{ route('welcome', ['lang' => 'en']) }}">English</a></li>
                             </ul>
                         </li>                                            
                     </ul>
@@ -114,11 +126,11 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">{{ __('welcome.home') }}</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">{{ __('welcome.login') }}</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">{{ __('welcome.register') }}</a>
                         @endif
                     @endauth
                 </div>
@@ -126,23 +138,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    UPA BAHASA POLINEMA
+                    {{ __('welcome.title') }}
                 </div>
                 <div class="subtitle">
-                    Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa,<br> 
-                    termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).
+                    {{ __('welcome.subtitle') }}
                 </div>
-
-                {{-- <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> --}}
             </div>
         </div>
 
