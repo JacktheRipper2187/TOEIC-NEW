@@ -6,6 +6,7 @@ use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SertifikatController;
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +33,6 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-
-
 Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index');
 Route::get('/jadwal', [PesertaController::class, 'index'])->name('jadwal.index');
 Route::get('/sertifikat', [PesertaController::class, 'index'])->name('sertifikat.index');
@@ -48,3 +47,12 @@ Route::post('/pendaftaran', function (Request $request) {
 
     return "Pendaftaran Berhasil! Nama: $nama, Email: $email";
 })->name('pendaftaran.submit');
+
+// Route untuk mengubah bahasa
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'id'])) {
+        session(['locale' => $locale]);
+        app()->setLocale($locale);
+    }
+    return redirect()->back();
+})->name('lang.switch');

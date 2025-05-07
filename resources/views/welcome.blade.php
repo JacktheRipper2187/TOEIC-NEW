@@ -1,10 +1,11 @@
+<!-- filepath: c:\laragon\www\TOEIC-NEW\resources\views\welcome.blade.php -->
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>UPA Bahasa</title>
+    <title>{{ __('welcome.title') }}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/style.css') }}">
@@ -64,7 +65,7 @@
     <nav class="navbar navbar-expand-lg navbar-light container-fluid py-3">
         <a class="navbar-brand d-flex align-items-center" href="/">
             <img src="{{ asset('img/Polinema-Logo.png') }}" alt="Logo Polinema" style="height: 50px;">
-            <span class="ms-3 fw-bold text-primary fs-4">UPA Bahasa Polinema</span>
+            <span class="ms-3 fw-bold text-primary fs-4">{{ __('welcome.title') }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -72,17 +73,17 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-dark px-3" href="/">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link text-dark px-3" href="#syarat-ketentuan">Syarat & Ketentuan</a></li>
-                <li class="nav-item"><a class="nav-link text-dark px-3" href="#pendaftaran">Pendaftaran</a></li>
-                <li class="nav-item"><a class="nav-link text-dark px-3" href="#jadwal">Jadwal</a></li>
+                <li class="nav-item"><a class="nav-link text-dark px-3" href="/">{{ __('welcome.home') }}</a></li>
+                <li class="nav-item"><a class="nav-link text-dark px-3" href="#syarat-ketentuan">{{ __('welcome.syarat_ketentuan') }}</a></li>
+                <li class="nav-item"><a class="nav-link text-dark px-3" href="#pendaftaran">{{ __('welcome.pendaftaran') }}</a></li>
+                <li class="nav-item"><a class="nav-link text-dark px-3" href="#jadwal">{{ __('welcome.jadwal_ujian') }}</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link text-dark px-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Pilih Bahasa
+                        {{ app()->getLocale() == 'id' ? 'Indonesia' : 'English' }}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Indonesia</a></li>
-                        <li><a class="dropdown-item" href="#">English</a></li>
+                        <li><a class="dropdown-item" href="{{ url('lang/id') }}">Indonesia</a></li>
+                        <li><a class="dropdown-item" href="{{ url('lang/en') }}">English</a></li>
                     </ul>
                 </li>
             </ul>
@@ -94,11 +95,11 @@
     @if (Route::has('login'))
         <div class="position-absolute top-0 end-0 mt-3 me-3">
             @auth
-                <a href="{{ url('/home') }}" class="text-white text-decoration-none">Home</a>
+                <a href="{{ url('/home') }}" class="text-white text-decoration-none">{{ __('welcome.home') }}</a>
             @else
-                <a href="{{ route('login') }}" class="text-white text-decoration-none">Login</a>
+                <a href="{{ route('login') }}" class="text-white text-decoration-none">{{ __('welcome.login') }}</a>
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="text-white ms-3 text-decoration-none">Register</a>
+                    <a href="{{ route('register') }}" class="text-white ms-3 text-decoration-none">{{ __('welcome.register') }}</a>
                 @endif
             @endauth
         </div>
@@ -106,11 +107,10 @@
 
     <div class="content">
         <div class="title m-b-md">
-            <b>UPA BAHASA <br>Politeknik Negeri Malang</b>
+            <b>{{ __('welcome.title') }}</b>
         </div>
         <div class="subtitle">
-            Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa,<br>
-            termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).
+            {{ __('welcome.subtitle') }}
         </div>
     </div>
 </div>
@@ -118,72 +118,64 @@
 <div class="container mt-5">
     <div class="card shadow mb-4" id="syarat-ketentuan">
         <div class="card-body p-4">
-            <h2 class="card-title fw-bold text-info mb-4">Syarat dan Ketentuan</h2>
-            <h5 class="fw-bold">Persyaratan Peserta:</h5>
+            <h2 class="card-title fw-bold text-info mb-4">{{ __('welcome.syarat_ketentuan') }}</h2>
+            <h5 class="fw-bold">{{ __('welcome.persyaratan_peserta') }}</h5>
             <ul class="list-unstyled">
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Mahasiswa/alumni Polinema atau pihak lain yang diizinkan.</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Memiliki kartu identitas valid.</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Memenuhi syarat khusus jika ada.</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.persyaratan_1') }}</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.persyaratan_2') }}</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.persyaratan_3') }}</li>
             </ul>
-            <h5 class="fw-bold">Ketentuan Pendaftaran:</h5>
+            <h5 class="fw-bold">{{ __('welcome.ketentuan_pendaftaran') }}</h5>
             <ul class="list-unstyled">
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Dilakukan secara online di website resmi.</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Isi data pendaftaran dengan benar dan lengkap.</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Patuhi batas waktu pendaftaran yang ditentukan.</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.pendaftaran_1') }}</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.pendaftaran_2') }}</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.pendaftaran_3') }}</li>
             </ul>
-            <h5 class="fw-bold">Ketentuan Pelaksanaan Ujian:</h5>
+            <h5 class="fw-bold">{{ __('welcome.ketentuan_ujian') }}</h5>
             <ul class="list-unstyled">
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Hadir 30 menit sebelum ujian.</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Tidak boleh membawa alat komunikasi tanpa izin.</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Patuhi tata tertib ujian.</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.ujian_1') }}</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.ujian_2') }}</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.ujian_3') }}</li>
             </ul>
-        </div>
-    </div>
-
-    
-    <div class="card shadow mb-4" id="pendaftaran">
-        <div class="card-body p-4">
-            <h3 class="card-title fw-bold text-primary mb-3">Dashboard Pendaftaran</h3>
-            <p>Pilih jenis pendaftaran:</p>
-            <div class="d-flex gap-3 justify-content-center">
-                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">GRATIS</a> 
-                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">BERBAYAR</button>
-
-            </div>
+            <a href="/" class="btn btn-outline-info btn-sm mt-3"><i class="bi bi-arrow-left me-2"></i>{{ __('welcome.back_to_home') }}</a>
         </div>
     </div>
 
     <div class="card shadow mb-4" id="jadwal">
         <div class="card-body p-4">
-            <h3 class="card-title fw-bold mb-3 text-warning">Jadwal Ujian</h3>
+            <h3 class="card-title fw-bold mb-3 text-warning">{{ __('welcome.jadwal_ujian') }}</h3>
             <div class="table-responsive">
                 <table class="table table-bordered text-center">
                     <thead class="table-light">
                         <tr>
-                            <th>Tanggal</th>
-                            <th>Waktu</th>
-                            <th>Lokasi</th>
-                            <th>Keterangan</th>
+                            <th>{{ __('welcome.tanggal') }}</th>
+                            <th>{{ __('welcome.waktu') }}</th>
+                            <th>{{ __('welcome.jenis_ujian') }}</th>
+                            <th>{{ __('welcome.lokasi') }}</th>
+                            <th>{{ __('welcome.keterangan') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>15 Mei 2025</td>
                             <td>09:00 - 11:00</td>
+                            <td>TOEIC Listening & Reading</td>
                             <td>Gedung A Lantai 2</td>
                             <td>Sesi 1</td>
                         </tr>
                         <tr>
-                            <td>15 Mei 2025</td>
+                            <td>16 Mei 2025</td>
                             <td>10:00 - 12:00</td>
+                            <td>TOEFL ITP</td>
                             <td>Gedung B Lantai 1</td>
-                            <td>Sesi 2</td>
+                            <td>Sesi Pagi</td>
                         </tr>
                         <tr>
-                            <td>15 Mei 2025</td>
+                            <td>17 Mei 2025</td>
                             <td>13:00 - 15:00</td>
+                            <td>TOEIC Speaking & Writing</td>
                             <td>Gedung A Lantai 3</td>
-                            <td>Sesi 3</td>
+                            <td>Sesi Sore</td>
                         </tr>
                     </tbody>
                 </table>
@@ -191,15 +183,26 @@
         </div>
     </div>
 
+    <div class="card shadow mb-4" id="pendaftaran">
+        <div class="card-body p-4">
+            <h3 class="card-title fw-bold text-primary mb-3">{{ __('welcome.pendaftaran') }}</h3>
+            <p>{{ __('welcome.pilih_pendaftaran') }}</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">{{ __('welcome.gratis') }}</a> 
+                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">{{ __('welcome.berbayar') }}</button>
+            </div>
+        </div>
+    </div>
+
     <div class="card shadow mb-5" id="jadwal-pengambilan-sertifikat">
         <div class="card-body p-4">
-            <h3 class="card-title fw-bold text-info mb-3">Jadwal Pengambilan Sertifikat</h3>
+            <h3 class="card-title fw-bold text-info mb-3">{{ __('welcome.jadwal_pengambilan') }}</h3>
             <ul class="list-unstyled">
                 <li><i class="bi bi-calendar-event-fill text-primary me-2"></i> 22 - 26 Mei 2025</li>
                 <li><i class="bi bi-geo-alt-fill text-danger me-2"></i> Kantor UPA Bahasa, Gedung Rektorat Lt. 1</li>
                 <li><i class="bi bi-clock-fill text-success me-2"></i> 09:00 - 15:00 WIB</li>
             </ul>
-            <a href="#" class="btn btn-outline-info btn-sm">Detail Pengambilan</a>
+            <a href="#" class="btn btn-outline-info btn-sm">{{ __('welcome.detail_pengambilan') }}</a>
         </div>
     </div>
 </div>
