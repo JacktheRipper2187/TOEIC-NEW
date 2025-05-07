@@ -105,33 +105,32 @@
         let jurusanOptions = [];
         if (kampus === "utama") {
             jurusanOptions = [
-                { value: "TI", label: "Teknologi Informasi" },
-                { value: "TS", label: "Teknik Sipil" },
                 { value: "TE", label: "Teknik Elektro" },
-                { value: "TK", label: "Teknik Kimia" },
                 { value: "TM", label: "Teknik Mesin" },
+                { value: "TS", label: "Teknik Sipil" },
+                { value: "AK", label: "Akuntansi" },
                 { value: "AN", label: "Administrasi Niaga" },
-                { value: "AK", label: "Akuntansi" }
+                { value: "TK", label: "Teknik Kimia" },
+                { value: "TI", label: "Teknologi Informasi" }
             ];
         } else if (kampus === "kediri") {
             jurusanOptions = [
                 { value: "TI", label: "Teknologi Informasi" },
-                { value: "TE", label: "Teknik Mesin" },
                 { value: "TM", label: "Teknik Mesin" },
-                { value: "AK", label: "Akuntansi" }
-            ];
-        } else if (kampus === "pamekasan") {
-            jurusanOptions = [
-                { value: "MI", label: "Manajemen Informatika" },
-                { value: "TM", label: "Teknik Mesin" },
-                { value: "AK", label: "Akuntansi Manajemen" }
+                { value: "AK", label: "Akuntansi" },
+                { value: "TE", label: "Teknik Elektro" }
             ];
         } else if (kampus === "lumajang") {
             jurusanOptions = [
                 { value: "TI", label: "Teknologi Informasi" },
-                { value: "TM", label: "Teknik Mesin" },
                 { value: "TS", label: "Teknik Sipil" },
                 { value: "AK", label: "Akuntansi" }
+            ];
+        } else if (kampus === "pamekasan") {
+            jurusanOptions = [
+                { value: "TM", label: "Teknik Mesin" },
+                { value: "AK", label: "Akuntansi" },
+                { value: "TI", label: "Teknologi Informasi" }
             ];
         }
 
@@ -145,31 +144,85 @@
 
     function updateProgramStudi() {
         const jurusan = document.getElementById("jurusan").value;
+        const kampus = document.getElementById("kampus").value;
         const programStudiSelect = document.getElementById("programStudi");
 
         programStudiSelect.innerHTML = '<option selected>Pilih Program Studi</option>';
 
-        let programStudiOptions = [];
-        if (jurusan === "TI") {
-            programStudiOptions = [{ value: "TI", label: "Teknologi Informasi" }];
-        } else if (jurusan === "TE") {
-            programStudiOptions = [{ value: "TE", label: "Teknik Elektro" }];
-        } else if (jurusan === "TS") {
-            programStudiOptions = [{ value: "TS", label: "Teknik Sipil" }];
-        } else if (jurusan === "TK") {
-            programStudiOptions = [{ value: "TK", label: "Teknik Kimia" }];
-        } else if (jurusan === "TM") {
-            programStudiOptions = [{ value: "TM", label: "Teknik Mesin" }];
-        } else if (jurusan === "AN") {
-            programStudiOptions = [{ value: "AN", label: "Administrasi Niaga" }];
-        } else if (jurusan === "AK") {
-            programStudiOptions = [{ value: "AK", label: "Akuntansi" }];
-        }
+        const data = {
+            utama: {
+                TE: [
+                    "D-IV Teknik Elektronika",
+                    "D-IV Sistem Kelistrikan",
+                    "D-IV Jaringan Telekomunikasi Digital",
+                    "D-III Teknik Elektronika",
+                    "D-III Teknik Listrik",
+                    "D-III Teknik Telekomunikasi"
+                ],
+                TM: [
+                    "D-IV Teknik Otomotif Elektronik",
+                    "D-IV Teknik Mesin Produksi dan Perawatan",
+                    "D-III Teknik Mesin",
+                    "D-III Teknologi Pemeliharaan Pesawat Udara"
+                ],
+                TS: [
+                    "D-IV Manajemen Rekayasa Konstruksi",
+                    "D-IV Teknologi Rekayasa Konstruksi Jalan dan Jembatan",
+                    "D-III Teknik Sipil",
+                    "D-III Teknologi Konstruksi Jalan, Jembatan, dan Bangunan Air",
+                    "D-III Teknologi Pertambangan"
+                ],
+                AK: [
+                    "D-IV Akuntansi Manajemen",
+                    "D-IV Keuangan",
+                    "D-III Akuntansi"
+                ],
+                AN: [
+                    "D-IV Manajemen Pemasaran",
+                    "D-IV Bahasa Inggris untuk Komunikasi Bisnis dan Profesional",
+                    "D-IV Pengelolaan Arsip dan Rekaman Informasi",
+                    "D-IV Usaha Perjalanan Wisata",
+                    "D-IV Bahasa Inggris untuk Industri Pariwisata",
+                    "D-III Administrasi Bisnis"
+                ],
+                TK: [
+                    "D-IV Teknologi Kimia Industri",
+                    "D-III Teknik Kimia"
+                ],
+                TI: [
+                    "D-IV Teknik Informatika",
+                    "D-IV Sistem Informasi Bisnis",
+                    "D-II Pengembangan Piranti Lunak Situs"
+                ]
+            },
+            kediri: {
+                TI: ["D-III Teknik Informatika"],
+                TM: ["D-III Teknik Mesin", "D-IV Teknik Mesin Produksi dan Perawatan"],
+                AK: ["D-III Akuntansi", "D-IV Keuangan"],
+                TE: ["D-IV Teknik Elektronika"]
+            },
+            lumajang: {
+                TI: ["D-III Teknologi Informasi"],
+                TS: ["D-III Teknik Sipil"],
+                AK: ["D-III Akuntansi"]
+            },
+            pamekasan: {
+                TM: [
+                    "D-IV Teknologi Rekayasa Otomotif",
+                    "D-IV Teknik Otomotif Elektronik"
+                ],
+                AK: ["D-IV Akuntansi Manajemen"],
+                TI: ["D-III Manajemen Informatika"]
+            }
+        };
 
-        programStudiOptions.forEach(option => {
+        const kampusData = data[kampus] || {};
+        const prodiList = kampusData[jurusan] || [];
+
+        prodiList.forEach(prodi => {
             const opt = document.createElement("option");
-            opt.value = option.value;
-            opt.text = option.label;
+            opt.value = prodi;
+            opt.text = prodi;
             programStudiSelect.appendChild(opt);
         });
     }
