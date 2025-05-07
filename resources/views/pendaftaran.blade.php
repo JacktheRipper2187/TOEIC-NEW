@@ -43,10 +43,10 @@
                 <div class="col-md-9">
                     <select id="kampus" class="form-select" onchange="updateJurusan()">
                         <option selected>Pilih Kampus</option>
-                        <option value="utama">Polnema Kampus Utama</option>
-                        <option value="kediri">Polinema PSDKU Kediri</option>
-                        <option value="pamekasan">Polinema PSDKU Pamekasan</option>
-                        <option value="lumajang">Polinema PSDKU Lumajang</option>
+                        <option value="utama">Kampus Utama</option>
+                        <option value="kediri">PSDKU Kediri</option>
+                        <option value="pamekasan">PSDKU Pamekasan</option>
+                        <option value="lumajang">PSDKU Lumajang</option>
                     </select>
                 </div>
             </div>
