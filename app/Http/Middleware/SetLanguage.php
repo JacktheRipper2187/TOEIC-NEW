@@ -8,8 +8,13 @@ class SetLanguage
 {
     public function handle($request, Closure $next)
     {
-        $lang = $request->lang ?? 'id'; // Default ke 'id' jika tidak ada parameter
-        App::setLocale($lang); // Mengatur bahasa aplikasi
+        // Periksa apakah sesi memiliki 'locale'
+        if (session()->has('locale')) {
+            App::setLocale(session('locale')); // Atur bahasa dari sesi
+        } else {
+            App::setLocale('id'); // Default ke 'id' jika sesi tidak ada
+        }
+
         return $next($request);
     }
 }

@@ -2,15 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SertifikatController;
-<<<<<<< HEAD
-
-=======
 use Illuminate\Http\Request;
->>>>>>> bfc23cc773f25c2e68ba04b76540922cbf03c362
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,31 +18,12 @@ use Illuminate\Http\Request;
 |
 */
 
-// Grup route dengan prefix {lang?}
-Route::group(['prefix' => '{lang?}', 'where' => ['lang' => 'en|id']], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('welcome');
-
-    Route::get('/about', function () {
-        return view('about');
-    })->name('about');
-
-    Route::get('/profile', 'ProfileController@index')->name('profile');
-    Route::put('/profile', 'ProfileController@update')->name('profile.update');
-
-    Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index');
-    Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
-    Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat.index');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-// Route untuk autentikasi
 Auth::routes();
 
-<<<<<<< HEAD
-// Route tanpa parameter bahasa
-Route::get('/home', 'HomeController@index')->name('home');
-=======
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -55,8 +32,6 @@ Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-
-
 
 Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index');
 Route::get('/jadwal', [PesertaController::class, 'index'])->name('jadwal.index');
@@ -72,4 +47,12 @@ Route::post('/pendaftaran', function (Request $request) {
 
     return "Pendaftaran Berhasil! Nama: $nama, Email: $email";
 })->name('pendaftaran.submit');
->>>>>>> bfc23cc773f25c2e68ba04b76540922cbf03c362
+
+// Route untuk mengubah bahasa
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'id'])) {
+        session(['locale' => $locale]);
+        app()->setLocale($locale);
+    }
+    return redirect()->back();
+})->name('lang.switch');
