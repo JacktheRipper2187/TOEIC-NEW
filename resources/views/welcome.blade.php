@@ -137,7 +137,19 @@
                 <li><i class="bi bi-check-circle-fill text-success me-2"></i> Tidak boleh membawa alat komunikasi tanpa izin.</li>
                 <li><i class="bi bi-check-circle-fill text-success me-2"></i> Patuhi tata tertib ujian.</li>
             </ul>
-            <a href="/" class="btn btn-outline-info btn-sm mt-3"><i class="bi bi-arrow-left me-2"></i>Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    
+    <div class="card shadow mb-4" id="pendaftaran">
+        <div class="card-body p-4">
+            <h3 class="card-title fw-bold text-primary mb-3">Dashboard Pendaftaran</h3>
+            <p>Pilih jenis pendaftaran:</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">GRATIS</a> 
+                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">BERBAYAR</button>
+
+            </div>
         </div>
     </div>
 
@@ -150,7 +162,6 @@
                         <tr>
                             <th>Tanggal</th>
                             <th>Waktu</th>
-                            <th>Jenis Ujian</th>
                             <th>Lokasi</th>
                             <th>Keterangan</th>
                         </tr>
@@ -159,38 +170,23 @@
                         <tr>
                             <td>15 Mei 2025</td>
                             <td>09:00 - 11:00</td>
-                            <td>TOEIC Listening & Reading</td>
                             <td>Gedung A Lantai 2</td>
                             <td>Sesi 1</td>
                         </tr>
                         <tr>
-                            <td>16 Mei 2025</td>
+                            <td>15 Mei 2025</td>
                             <td>10:00 - 12:00</td>
-                            <td>TOEFL ITP</td>
                             <td>Gedung B Lantai 1</td>
-                            <td>Sesi Pagi</td>
+                            <td>Sesi 2</td>
                         </tr>
                         <tr>
-                            <td>17 Mei 2025</td>
+                            <td>15 Mei 2025</td>
                             <td>13:00 - 15:00</td>
-                            <td>TOEIC Speaking & Writing</td>
                             <td>Gedung A Lantai 3</td>
-                            <td>Sesi Sore</td>
+                            <td>Sesi 3</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="card shadow mb-4" id="pendaftaran">
-        <div class="card-body p-4">
-            <h3 class="card-title fw-bold text-primary mb-3">Dashboard Pendaftaran</h3>
-            <p>Pilih jenis pendaftaran:</p>
-            <div class="d-flex gap-3 justify-content-center">
-                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">GRATIS</a> 
-                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">BERBAYAR</button>
-
             </div>
         </div>
     </div>
