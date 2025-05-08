@@ -30,4 +30,7 @@ return [
     'ujian_3' => 'Participants must maintain order during the exam.',
     'back_to_home' => 'Back to Home',
     'pilih_pendaftaran' => 'Choose registration type:',
+    'tanggal_pengambilan' => 'May 22 - 26, 2025',
+    'lokasi_pengambilan' => 'UPA Bahasa Office, Rectorate Building 1st Floor',
+    'waktu_pengambilan' => '09:00 AM - 03:00 PM',
 ];

@@ -30,4 +30,7 @@ return [
     'ujian_3' => 'Peserta harus menjaga ketertiban selama ujian.',
     'back_to_home' => 'Kembali ke Beranda',
     'pilih_pendaftaran' => 'Pilih jenis pendaftaran:',
+    'tanggal_pengambilan' => '22 - 26 Mei 2025',
+    'lokasi_pengambilan' => 'Kantor UPA Bahasa, Gedung Rektorat Lt. 1',
+    'waktu_pengambilan' => '09:00 - 15:00 WIB',
 ];

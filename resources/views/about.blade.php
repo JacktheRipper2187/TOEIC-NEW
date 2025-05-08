@@ -32,8 +32,8 @@
                         <div class="col-lg-12">
                             <h5 class="font-weight-bold">TOEIC</h5>
                             <p>Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa, termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).</p>
-                            <a href="https://www.instagram.com/upabahasa/" target="_blank" class="btn btn-github">
-                                <i class="fab fa-instagram fa-fw"></i> Go to Instagram
+                            <a href="https://www.instagram.com/upabahasa/" target="_blank" class="btn btn-sm mt-3" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; border: none;">
+                                <i class="bi bi-instagram me-2"></i> Go to Instagram
                             </a>
                         </div>
                     </div>
@@ -59,4 +59,4 @@
 
     </div>
 
-@endsection
+@endsection 
