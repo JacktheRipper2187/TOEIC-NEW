@@ -93,7 +93,7 @@
 
 <div class="flex-center full-height">
     @if (Route::has('login'))
-        <div class="position-absolute top-0 end-0 mt-3 me-3">
+    <div class="position-absolute top-0 end-0 me-3" style="margin-top: 6rem;">
             @auth
                 <a href="{{ url('/home') }}" class="text-white text-decoration-none">{{ __('welcome.home') }}</a>
             @else

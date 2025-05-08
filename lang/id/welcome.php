@@ -33,4 +33,6 @@ return [
     'tanggal_pengambilan' => '22 - 26 Mei 2025',
     'lokasi_pengambilan' => 'Kantor UPA Bahasa, Gedung Rektorat Lt. 1',
     'waktu_pengambilan' => '09:00 - 15:00 WIB',
+    'login' => 'Masuk',
+    'register' => 'Daftar',
 ];

@@ -33,4 +33,6 @@ return [
     'tanggal_pengambilan' => 'May 22 - 26, 2025',
     'lokasi_pengambilan' => 'UPA Bahasa Office, Rectorate Building 1st Floor',
     'waktu_pengambilan' => '09:00 AM - 03:00 PM',
+    'login' => 'Login',
+    'register' => 'Register',
 ];
