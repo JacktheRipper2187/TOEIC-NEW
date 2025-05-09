@@ -14,6 +14,7 @@
                                     <h1 class="h4 text-gray-900 mb-4">{{ __('Login') }}</h1>
                                 </div>
 
+                                {{-- Ini error lama (bisa dihilangkan kalau mau sweetalert full)
                                 @if ($errors->any())
                                     <div class="alert alert-danger border-left-danger" role="alert">
                                         <ul class="pl-4 my-2">
@@ -23,6 +24,7 @@
                                         </ul>
                                     </div>
                                 @endif
+                                --}}
 
                                 <form method="POST" action="{{ route('login') }}" class="user">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -92,4 +94,19 @@
         </div>
     </div>
 </div>
+
+{{-- SweetAlert CDN --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{{-- Script SweetAlert untuk error login --}}
+<script>
+    @if ($errors->any())
+        Swal.fire({
+            icon: 'error',
+            title: 'Login Gagal!',
+            html: `{!! implode('<br>', $errors->all()) !!}`,
+            confirmButtonText: 'Coba Lagi'
+        });
+    @endif
+</script>
 @endsection
