@@ -85,7 +85,7 @@
                         <li><a class="dropdown-item" href="{{ url('lang/id') }}">Indonesia</a></li>
                         <li><a class="dropdown-item" href="{{ url('lang/en') }}">English</a></li>
                     </ul>
-                </li>
+                </li>  
             </ul>
         </div>
     </nav>
@@ -93,7 +93,7 @@
 
 <div class="flex-center full-height">
     @if (Route::has('login'))
-        <div class="position-absolute top-0 end-0 mt-3 me-3">
+    <div class="position-absolute top-0 end-0 me-3" style="margin-top: 6rem;">
             @auth
                 <a href="{{ url('/home') }}" class="text-white text-decoration-none">{{ __('welcome.home') }}</a>
             @else
@@ -198,9 +198,9 @@
         <div class="card-body p-4">
             <h3 class="card-title fw-bold text-info mb-3">{{ __('welcome.jadwal_pengambilan') }}</h3>
             <ul class="list-unstyled">
-                <li><i class="bi bi-calendar-event-fill text-primary me-2"></i> 22 - 26 Mei 2025</li>
-                <li><i class="bi bi-geo-alt-fill text-danger me-2"></i> Kantor UPA Bahasa, Gedung Rektorat Lt. 1</li>
-                <li><i class="bi bi-clock-fill text-success me-2"></i> 09:00 - 15:00 WIB</li>
+                <li><i class="bi bi-calendar-event-fill text-primary me-2"></i> {{ __('welcome.tanggal_pengambilan') }}</li>
+                <li><i class="bi bi-geo-alt-fill text-danger me-2"></i> {{ __('welcome.lokasi_pengambilan') }}</li>
+                <li><i class="bi bi-clock-fill text-success me-2"></i> {{ __('welcome.waktu_pengambilan') }}</li>
             </ul>
             <a href="#" class="btn btn-outline-info btn-sm">{{ __('welcome.detail_pengambilan') }}</a>
         </div>
