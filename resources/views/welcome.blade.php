@@ -110,15 +110,15 @@
             <b>{{ __('welcome.title') }}</b>
         </div>
         <div class="subtitle">
-            {{ __('welcome.subtitle') }}
+            {!! __('welcome.subtitle') !!}
         </div>
     </div>
 </div>
 
 <div class="container mt-5">
-    <div class="card shadow mb-4" id="syarat-ketentuan">
+    <div class="card shadow mb-5" id="syarat-ketentuan">
         <div class="card-body p-4">
-            <h2 class="card-title fw-bold text-info mb-4">{{ __('welcome.syarat_ketentuan') }}</h2>
+            <h2 class="card-title fw-bold text-info mb-2">{{ __('welcome.syarat_ketentuan') }}</h2>
             <h5 class="fw-bold">{{ __('welcome.persyaratan_peserta') }}</h5>
             <ul class="list-unstyled">
                 <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.persyaratan_1') }}</li>
@@ -141,6 +141,17 @@
         </div>
     </div>
 
+    <div class="card shadow mb-4" id="pendaftaran">
+        <div class="card-body p-4">
+            <h3 class="card-title fw-bold text-primary mb-3">{{ __('welcome.pendaftaran') }}</h3>
+            <p>{{ __('welcome.pilih_pendaftaran') }}</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">{{ __('welcome.gratis') }}</a> 
+                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">{{ __('welcome.berbayar') }}</button>
+            </div>
+        </div>
+    </div>
+
     <div class="card shadow mb-4" id="jadwal">
         <div class="card-body p-4">
             <h3 class="card-title fw-bold mb-3 text-warning">{{ __('welcome.jadwal_ujian') }}</h3>
@@ -150,7 +161,7 @@
                         <tr>
                             <th>{{ __('welcome.tanggal') }}</th>
                             <th>{{ __('welcome.waktu') }}</th>
-                            <th>{{ __('welcome.jenis_ujian') }}</th>
+                            <th>{{ __('welcome.jurusan') }}</th>
                             <th>{{ __('welcome.lokasi') }}</th>
                             <th>{{ __('welcome.keterangan') }}</th>
                         </tr>
@@ -159,7 +170,7 @@
                         <tr>
                             <td>15 Mei 2025</td>
                             <td>09:00 - 11:00</td>
-                            <td>TOEIC Listening & Reading</td>
+                            <td>Jurusan Teknologi Informasi</td>
                             <td>Gedung A Lantai 2</td>
                             <td>Sesi 1</td>
                         </tr>
@@ -179,17 +190,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="card shadow mb-4" id="pendaftaran">
-        <div class="card-body p-4">
-            <h3 class="card-title fw-bold text-primary mb-3">{{ __('welcome.pendaftaran') }}</h3>
-            <p>{{ __('welcome.pilih_pendaftaran') }}</p>
-            <div class="d-flex gap-3 justify-content-center">
-                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">{{ __('welcome.gratis') }}</a> 
-                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">{{ __('welcome.berbayar') }}</button>
             </div>
         </div>
     </div>

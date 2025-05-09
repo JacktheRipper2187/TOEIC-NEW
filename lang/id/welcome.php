@@ -2,7 +2,7 @@
 
 return [
     'title' => 'UPA Bahasa Polinema',
-    'subtitle' => 'Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa, termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).',
+    'subtitle' => 'Unit Pelaksana Akademik Bahasa di Politeknik Negeri Malang adalah unit yang bertanggung jawab atas penyelenggaraan layanan bahasa,<br>termasuk pelaksanaan ujian sertifikasi bahasa seperti TOEIC (Test of English for International Communication).',
     'syarat_ketentuan' => 'Syarat dan Ketentuan',
     'persyaratan_peserta' => 'Persyaratan Peserta:',
     'ketentuan_pendaftaran' => 'Ketentuan Pendaftaran:',
@@ -16,7 +16,7 @@ return [
     'home' => 'Beranda',
     'tanggal' => 'Tanggal',
     'waktu' => 'Waktu',
-    'jenis_ujian' => 'Jenis Ujian',
+    'jurusan' => 'Jurusan',
     'lokasi' => 'Lokasi',
     'keterangan' => 'Keterangan',
     'persyaratan_1' => 'Peserta harus membawa kartu identitas.',
