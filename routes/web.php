@@ -27,6 +27,9 @@ Route::get('/pendaftaran', function () {
 // Proses simpan data pendaftaran
 Route::post('/pendaftaran/store', [PesertaController::class, 'store'])->name('pendaftaran.store');
 
+// Peserta Index
+Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index');
+
 // ✅ Route ubah bahasa (guest juga boleh)
 Route::get('lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
