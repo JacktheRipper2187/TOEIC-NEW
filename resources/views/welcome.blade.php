@@ -57,6 +57,9 @@
         .card-title {
             text-shadow: none;
         }
+        [id] {
+    scroll-margin-top: 100px; /* atau sesuaikan dengan tinggi navbar kamu */
+}
     </style>
 </head>
 
@@ -115,6 +118,29 @@
     </div>
 </div>
 
+<div class="py-5" style="background-color: #ffff;">
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-md-7">
+                <h1 class="fw-bold" style="color: #1f1f1f;">UPA Bahasa Polinema</h1>
+                <p class="fw-semibold" style="color: #4e37fd;">Apa sih UPA Bahasa itu?</p>
+                <p class="fw-semibold" style="color: #0c0066;">
+                    UPA Bahasa Politeknik Negeri Malang merupakan penjunjang Akademik di bidang
+                    pengembangan pembelajaran dan layanan kebahasaan yang mempunyai tugas melaksanakan
+                    pengembangan pembelajaran, peningkatan kemampuan, dan pelayanan uji kemampuan berbahasa.
+            </div>
+
+            <!-- Logo Section -->
+            <div class="col-md-5 text-center mt-4 mt-md-0">
+                <img src="{{ asset('img/Polinema-Logo.png') }}" alt="Play IT Logo" style="max-width: 200px;">
+                <h2 class="fw-bold mt-3" style="background: linear-gradient(to right, #4e37fd, #edebe9); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">UPA Polinema</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container mt-5">
     <div class="card shadow mb-5" id="syarat-ketentuan">
         <div class="card-body p-4">
@@ -137,20 +163,42 @@
                 <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.ujian_2') }}</li>
                 <li><i class="bi bi-check-circle-fill text-success me-2"></i> {{ __('welcome.ujian_3') }}</li>
             </ul>
-            <a href="/" class="btn btn-outline-info btn-sm mt-3"><i class="bi bi-arrow-left me-2"></i>{{ __('welcome.back_to_home') }}</a>
         </div>
     </div>
 
-    <div class="card shadow mb-4" id="pendaftaran">
-        <div class="card-body p-4">
-            <h3 class="card-title fw-bold text-primary mb-3">{{ __('welcome.pendaftaran') }}</h3>
-            <p>{{ __('welcome.pilih_pendaftaran') }}</p>
-            <div class="d-flex gap-3 justify-content-center">
-                <a href="{{ url('/pendaftaran') }}" class="btn btn-lg btn-success">{{ __('welcome.gratis') }}</a> 
-                <button type="button" class="btn btn-lg btn-warning" onclick="window.location.href='https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/'">{{ __('welcome.berbayar') }}</button>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <!-- Gratis -->
+            <div class="col-md-5 mb-4">
+                <div class="card bg-warning text-white text-center rounded-4 shadow-lg h-100">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h2 class="fw-bold text-primary my-3">Gratis</h2>
+                        <ul class="list-unstyled small">
+                            <li>Untuk Mahasiswa/i Aktif Polinema</li>
+                            <li>Belum Pernah Mengikuti Test Gratis</li>
+                        </ul>
+                        <a href="{{ url('/pendaftaran') }}" class="btn btn-primary fw-bold mt-3">DAFTAR</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Berbayar -->
+            <div class="col-md-5 mb-4">
+                <div class="card bg-primary text-white text-center rounded-4 shadow-lg h-100">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h2 class="fw-bold text-warning my-3">Berbayar</h2>
+                        <ul class="list-unstyled small">
+                            <li>Untuk Polinema Umum</li>
+                            <li>Mahasiswa/i Alumni dan Tendik</li>
+                        </ul>
+                        <a href="https://itc-indonesia.com/polinema-pelaksanaan-toeic-cbt-from-home-bagi-mahasiswa/" class="btn btn-warning fw-bold text-white mt-3">DAFTAR</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
 
     <div class="card shadow mb-4" id="jadwal">
         <div class="card-body p-4">
@@ -206,6 +254,41 @@
         </div>
     </div>
 </div>
+
+<footer class="bg-white text-dark py-5">
+    <div class="container">
+        <h5 class="fw-bold mb-4" style="border-left: 4px solid #1000a1; padding-left: 10px;">Kontak</h5>
+        <ul class="list-unstyled">
+            <li class="mb-2">
+                <a href="https://g.co/kgs/nUjJt3y" class="text-dark text-decoration-none">
+                    <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                    Jl. Soekarno Hatta No.9, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141
+                </a>
+            </li>
+            <li class="mb-2">
+                <i class="bi bi-envelope-fill text-danger me-2"></i>
+                <a href="mailto:upabahasa@polinema.ac.id" class="text-dark text-decoration-none">
+                    upabahasa@polinema.ac.id
+                </a>
+            </li>
+            <li class="mb-2">
+                <i class="bi bi-whatsapp text-success me-2"></i>
+                0877-8464-4193
+            </li>
+            <li class="mb-2">
+                <i class="bi bi-clock-fill text-primary me-2"></i>
+                08.00 – 15.30 WIB
+            </li>
+        </ul>
+        <p class="mb-0 text-center text-dark">
+            &copy; <span id="copyright-year"></span> Politeknik Negeri Malang
+        </p>
+        <script>
+            document.getElementById("copyright-year").textContent = new Date().getFullYear();
+        </script>
+    </div>
+</footer>
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

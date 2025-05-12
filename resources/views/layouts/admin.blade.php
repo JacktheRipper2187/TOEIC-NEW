@@ -60,11 +60,11 @@
             </a>
         </li>
 
-        <!-- Nav Item - About -->
-        <li class="nav-item {{ Nav::isRoute('about') }}">
-            <a class="nav-link" href="{{ route('about') }}">
+        <!-- Nav Item - jadwal -->
+        <li class="nav-item {{ Nav::isRoute('Jadwal') }}">
+            <a class="nav-link" href="{{ route('Jadwal') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('About') }}</span>
+                <span>{{ __('Jadwal') }}</span>
             </a>
         </li>
 

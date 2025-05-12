@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SertifikatController;
+use Illuminate\Support\Facades\Auth;
 
 // ✅ Auth routes
 Auth::routes();
@@ -69,3 +70,7 @@ Route::middleware(['auth'])->group(function () {
     // Sertifikat (untuk admin/panitia)
     Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat.index');
 });
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+

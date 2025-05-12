@@ -156,6 +156,7 @@
             </div>
 
             <button type="submit" class="btn btn-success" id="submitBtn">Daftar Sekarang</button>
+            <a href="{{ url('/') }}" class="btn btn-danger">Kembali</a>
         </form>
     </div>
 </div>
@@ -305,8 +306,10 @@
                 complete: function() {
                     submitBtn.prop('disabled', false);
                     submitBtn.html('Daftar Sekarang');
+                    
                 }
             });
         });
     });
 </script>
+
