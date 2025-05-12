@@ -7,7 +7,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+   <!-- Favicon PNG -->
+   <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+
+<!-- Favicon ICO (backup, lebih prioritas di browser lama) -->
+<link rel="icon" href="{{ asset('favicon.ico') }}?v=2" type="image/x-icon">
+
+
+
+    <title>{{ config('app.name', 'UPA Bahasa Polinema') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

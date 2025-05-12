@@ -30,6 +30,18 @@ Route::post('/pendaftaran/store', [PesertaController::class, 'store'])->name('pe
 // Peserta Index
 Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index');
 
+// Route untuk menampilkan detail peserta
+Route::get('/peserta/{id}', [PesertaController::class, 'show'])->name('peserta.show');
+
+// Route untuk menampilkan form edit peserta
+Route::get('/peserta/{id}/edit', [PesertaController::class, 'edit'])->name('peserta.edit');
+
+// Route untuk menyimpan perubahan data peserta
+Route::put('/peserta/{id}', [PesertaController::class, 'update'])->name('peserta.update');
+
+// Route untuk menghapus data peserta
+Route::delete('/peserta/{id}', [PesertaController::class, 'destroy'])->name('peserta.destroy');
+
 // ✅ Route ubah bahasa (guest juga boleh)
 Route::get('lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Peserta;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class PesertaController extends Controller
 {
@@ -103,8 +104,11 @@ class PesertaController extends Controller
 
     public function update(Request $request, $id)
     {
+        Log::info('Memulai proses update untuk peserta ID: ' . $id);
+    
         $peserta = Peserta::findOrFail($id);
-
+        Log::info('Peserta ditemukan: ', $peserta->toArray());
+    
         $request->validate([
             'nama_lengkap' => 'required|string|max:255',
             'nim_nik' => 'required|string|max:50',
@@ -118,60 +122,70 @@ class PesertaController extends Controller
             'upload_ktp' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
             'upload_ktm' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
-
+        Log::info('Validasi berhasil');
+    
         try {
+            // Ambil data input biasa
             $data = $request->only([
                 'nama_lengkap', 'nim_nik', 'email',
                 'alamat_asal', 'alamat_sekarang',
                 'kampus', 'jurusan', 'program_studi'
             ]);
-
-            // Upload file baru jika ada
+            Log::info('Data input: ', $data);
+    
+            // Proses upload file baru jika ada
             if ($request->hasFile('foto_formal')) {
-                // Hapus file lama jika ada
                 if ($peserta->foto_formal) {
                     Storage::disk('public')->delete($peserta->foto_formal);
                 }
                 $data['foto_formal'] = $request->file('foto_formal')->store('foto_formal', 'public');
             }
+    
             if ($request->hasFile('upload_ktp')) {
                 if ($peserta->upload_ktp) {
                     Storage::disk('public')->delete($peserta->upload_ktp);
                 }
                 $data['upload_ktp'] = $request->file('upload_ktp')->store('upload_ktp', 'public');
             }
+    
             if ($request->hasFile('upload_ktm')) {
                 if ($peserta->upload_ktm) {
                     Storage::disk('public')->delete($peserta->upload_ktm);
                 }
                 $data['upload_ktm'] = $request->file('upload_ktm')->store('upload_ktm', 'public');
             }
-
+    
+            // Update data peserta
             $peserta->update($data);
-
-            // Response untuk AJAX
-            if ($request->ajax() || $request->wantsJson()) {
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Data peserta berhasil diupdate!'
-                ]);
-            }
-
-            // Response untuk non-AJAX
-            return redirect()->route('peserta.index')->with('success', 'Data peserta berhasil diupdate!');
-
+            Log::info('Data peserta berhasil diupdate');
+    
+            return redirect()->route('home')->with('success', 'Data peserta berhasil diupdate.');
+    
         } catch (\Exception $e) {
-            // Error handling untuk AJAX
-            if ($request->ajax() || $request->wantsJson()) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Terjadi kesalahan saat mengupdate data',
-                    'errors' => $e->getMessage()
-                ], 500);
-            }
-
-            // Error handling untuk non-AJAX
-            return back()->withInput()->with('error', 'Terjadi kesalahan: '.$e->getMessage());
+            Log::error('Gagal update peserta: ' . $e->getMessage());
+            return back()->withErrors(['error' => 'Terjadi kesalahan saat menyimpan data']);
         }
     }
+    
+
+    public function show($id)
+{
+    // Cari data peserta berdasarkan ID
+    $peserta = Peserta::findOrFail($id);
+
+    // Tampilkan view detail peserta
+    return view('peserta.show', compact('peserta'));
+}
+
+public function destroy($id)
+{
+    // Cari data peserta berdasarkan ID
+    $peserta = Peserta::findOrFail($id);
+
+    // Hapus data peserta
+    $peserta->delete();
+
+    // Redirect ke halaman daftar peserta dengan pesan sukses
+    return redirect()->route('home')->with('success', 'Data peserta berhasil dihapus.');
+}
 }

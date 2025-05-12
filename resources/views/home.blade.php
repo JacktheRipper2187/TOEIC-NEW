@@ -81,23 +81,34 @@
                         <th>Kampus</th>
                         <th>Jurusan</th>
                         <th>Program Studi</th>
+                        <th>Aksi</th> <!-- Tambahkan kolom Aksi -->
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($peserta as $p)
                         <tr>
                             <td>{{ $p->id }}</td>
-                            <td>{{ $p->nama }}</td>
-                            <td>{{ $p->nim }}</td>
+                            <td>{{ $p->nama_lengkap }}</td>
+                            <td>{{ $p->nim_nik }}</td>
                             <td>{{ $p->kampus }}</td>
                             <td>{{ $p->jurusan }}</td>
                             <td>{{ $p->program_studi }}</td>
+                            <td>
+                                <!-- Tombol Aksi -->
+                                <a href="{{ route('peserta.show', $p->id) }}" class="btn btn-info btn-sm">Detail</a>
+                                <a href="{{ route('peserta.edit', $p->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('peserta.destroy', $p->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-
+    
         <div id="data-sertifikat" style="display: none;">
             <table class="table table-bordered">
                 <thead>
@@ -106,7 +117,8 @@
                         <th>ID Peserta</th>
                         <th>Nomor Sertifikat</th>
                         <th>Tanggal Terbit</th>
-                        </tr>
+                        <th>Aksi</th> <!-- Tambahkan kolom Aksi -->
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach($sertifikat as $s)
@@ -115,12 +127,22 @@
                             <td>{{ $s->peserta_id }}</td>
                             <td>{{ $s->nomor_sertifikat }}</td>
                             <td>{{ $s->tanggal_terbit }}</td>
-                            </tr>
+                            <td>
+                                <!-- Tombol Aksi -->
+                                <a href="{{ route('sertifikat.show', $s->id) }}" class="btn btn-info btn-sm">Detail</a>
+                                <a href="{{ route('sertifikat.edit', $s->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('sertifikat.destroy', $s->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-
+    
         <div id="data-informasi" style="display: none;">
             <table class="table table-bordered">
                 <thead>
@@ -129,7 +151,8 @@
                         <th>Judul</th>
                         <th>Deskripsi</th>
                         <th>Tanggal</th>
-                        </tr>
+                        <th>Aksi</th> <!-- Tambahkan kolom Aksi -->
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach($jadwal as $j)
@@ -138,7 +161,17 @@
                             <td>{{ $j->judul }}</td>
                             <td>{{ $j->deskripsi }}</td>
                             <td>{{ $j->tanggal }}</td>
-                            </tr>
+                            <td>
+                                <!-- Tombol Aksi -->
+                                <a href="{{ route('jadwal.show', $j->id) }}" class="btn btn-info btn-sm">Detail</a>
+                                <a href="{{ route('jadwal.edit', $j->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('jadwal.destroy', $j->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
